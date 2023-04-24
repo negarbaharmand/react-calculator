@@ -3,6 +3,7 @@ import DigitButton from "./DigitButton";
 import OperationButton from "./OperationButton";
 import "./styles.css";
 
+//Different types of action we have
 export const ACTIONS = {
   ADD_DIGIT: "add-digit",
   CHOOSE_OPERATION: "choose-operation",
@@ -11,6 +12,9 @@ export const ACTIONS = {
   EVALUATE: "evaluate",
 };
 
+/*reducer function allows us to manage all of our states
+We break action to type and payload because we have different actions and they have different types which pass parameters
+*/
 function reducer(state, { type, payload }) {
   switch (type) {
     case ACTIONS.ADD_DIGIT:
@@ -19,12 +23,15 @@ function reducer(state, { type, payload }) {
         return {
           ...state,
           currentOperand: payload.digit,
+          overwrite: false,
         };
       }
+      //If our state is 0, don't add more 0 to it (000...)
       if (payload.digit === "0" && state.currentOperand === "0") {
         return state;
       }
 
+      //If our state is . or includes . don't add more .
       if (
         payload.digit === "." &&
         state.currentOperand &&
@@ -37,6 +44,7 @@ function reducer(state, { type, payload }) {
         currentOperand: `${state.currentOperand || ""}${payload.digit}`,
       };
     case ACTIONS.CHOOSE_OPERATION:
+      //If the
       if (state.currentOperand == null && state.previousOperand == null) {
         return state;
       }
@@ -48,6 +56,7 @@ function reducer(state, { type, payload }) {
         };
       }
 
+      //When we have typed a number and enter an operation move all the currentOperand to the previousOperand
       if (state.previousOperand == null) {
         return {
           ...state,
@@ -56,7 +65,7 @@ function reducer(state, { type, payload }) {
           currentOperand: null,
         };
       }
-      //By default it does the operation and moves the currentOperand to the previousOperand
+      //By default we have both current and previous and enter e new operation, it does the operation and moves the currentOperand to the previousOperand
       return {
         ...state,
         previousOperand: evaluate(state),
@@ -82,6 +91,7 @@ function reducer(state, { type, payload }) {
 
       return {
         ...state,
+        //This removes the last digit from the currentOperand
         currentOperand: state.currentOperand.slice(0, -1),
       };
 
