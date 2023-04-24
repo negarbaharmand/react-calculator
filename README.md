@@ -7,7 +7,6 @@ React Calculator is a calculator project built with React. It allows users to pe
 - Addition, subtraction, multiplication, and division
 - Clear button to reset the calculator
 - Input validation to prevent invalid calculations
-- Keyboard support for input and calculation
 
 ## Installation
 
@@ -20,7 +19,7 @@ git clone https://github.com/negarbaharmand/react-calculator.git
 2. Navigate to the project directory and Install the project dependencies
 
 ```bash
-cd react-calculator
+cd react-calculator/calculator
 npm install
 ```
 
