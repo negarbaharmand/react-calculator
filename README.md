@@ -2,12 +2,6 @@
 
 React Calculator is a calculator project built with React. It allows users to perform basic arithmetic operations, including addition, subtraction, multiplication, and division.
 
-## Features
-
-- Addition, subtraction, multiplication, and division
-- Clear button to reset the calculator
-- Input validation to prevent invalid calculations
-
 ## Installation
 
 1. Clone this repository to your local machine
