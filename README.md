@@ -2,6 +2,9 @@
 
 React Calculator is a calculator project built with React. It allows users to perform basic arithmetic operations, including addition, subtraction, multiplication, and division.
 
+## Live Demo
+[Do some calculation!](https://negarbaharmand.github.io/react-calculator/)
+
 ## Installation
 
 1. Clone this repository to your local machine
@@ -22,4 +25,4 @@ npm install
 ```bash
 npm run dev
 ```
-### Feel free to read more about the project on my [blog](https://negarbaharmand.com/posts/calculator/).
+### Feel free to read more about the project on my [blog](https://negarbaharmand.com/posts/calculator-react-app/).
